@@ -7,6 +7,8 @@ interface Project {
   description: string;
   image: string;
   link?: string;
+  githubUrl?: string;
+  trelloUrl?: string;
   ContentComponent?: FC;
 }
 
@@ -29,6 +31,7 @@ export function ProjectProvider({ children }: { children: React.ReactNode }) {
 
 export function useProjectContext() {
   const context = useContext(ProjectContext);
-  if (!context) throw new Error("useProjectContext debe usarse dentro de ProjectProvider");
+  if (!context)
+    throw new Error("useProjectContext debe usarse dentro de ProjectProvider");
   return context;
 }
