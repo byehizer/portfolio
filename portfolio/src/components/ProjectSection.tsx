@@ -6,11 +6,12 @@ import { motion } from "framer-motion";
 import { SiReact, SiNodedotjs, SiStripe, SiPrisma, SiMysql, SiSendgrid } from "react-icons/si";
 import { projects } from "@/constants/projects";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { useProjectContext } from "@/context/ProjectContext";
 
 export default function ProjectCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const router = useRouter();
+  const { setSelectedProject } = useProjectContext();
 
   const goToPrev = () => {
     setCurrentIndex((prevIndex) =>
@@ -69,7 +70,7 @@ export default function ProjectCarousel() {
             className={`${positionClass} w-72 sm:w-80 h-full bg-slate-800 rounded-xl p-4 text-white shadow-lg flex flex-col cursor-pointer ${
               isActive ? "hover:tilt-left" : ""
             }`}
-            onClick={() => handleClickProject(project.slug)}
+            onClick={() => setSelectedProject(project)}
           >
             <img
               src={project.image}

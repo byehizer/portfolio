@@ -4,11 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import CELLS from "vanta/dist/vanta.cells.min";
 import * as THREE from "three";
+import { useProjectContext } from "@/context/ProjectContext";
 
 export default function VantaBackground({ children }: { children: React.ReactNode }) {
   const vantaRef = useRef<HTMLDivElement | null>(null);
   const [vantaEffect, setVantaEffect] = useState<any>(null);
   const pathname = usePathname();
+  const { selectedProject, setSelectedProject }= useProjectContext();
 
   // Crear efecto solo una vez
   useEffect(() => {
@@ -41,10 +43,10 @@ export default function VantaBackground({ children }: { children: React.ReactNod
     if (vantaEffect) {
       vantaEffect.resize();
     }
-  }, [pathname, vantaEffect]);
+  }, [selectedProject, vantaEffect]);
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
+    <div className="relative w-full min-h-screen">
       <div
         ref={vantaRef}
         className="absolute inset-0 z-[-1] w-full h-full"
