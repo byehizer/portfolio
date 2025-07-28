@@ -1,3 +1,5 @@
+import CoinbaseContent from "@/components/ProjectsContents/CoinbaseContent";
+
 export const projects= [
 {
     title: "Coinbase",
@@ -7,5 +9,6 @@ export const projects= [
     image: "/Interiro-cantina-Mos-Eisley-DOS.jpg",
     link: "#",
     techIcons: ["react", "nodedotjs", "stripe", "sendgrid", "mysql"],
+    ContentComponent: CoinbaseContent,
   },
 ];

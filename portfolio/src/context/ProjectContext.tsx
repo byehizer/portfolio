@@ -1,11 +1,13 @@
 "use client";
 import { createContext, useContext, useState } from "react";
+import { FC } from "react";
 
 interface Project {
   title: string;
   description: string;
   image: string;
   link?: string;
+  ContentComponent?: FC;
 }
 
 interface ProjectContextType {
