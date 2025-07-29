@@ -1,7 +1,5 @@
 "use client";
 
-import { FaGithub } from "react-icons/fa";
-import { SiTrello } from "react-icons/si";
 import {
   SiReact,
   SiTailwindcss,

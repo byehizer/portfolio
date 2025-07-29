@@ -6,9 +6,8 @@ import * as THREE from "three";
 
 export default function VantaBackground({ children }: { children: React.ReactNode }) {
   const vantaRef = useRef<HTMLDivElement>(null);
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
+  const [vantaEffect, setVantaEffect] = useState<ReturnType<typeof CELLS> | null>(null);
 
-  // Inicializar Vanta una sola vez
   useEffect(() => {
     if (!vantaEffect && vantaRef.current) {
       const effect = CELLS({
@@ -34,13 +33,10 @@ export default function VantaBackground({ children }: { children: React.ReactNod
 
   return (
     <div className="relative w-full min-h-screen">
-      {/* Fondo Vanta dinámico y siempre cubriendo todo */}
       <div
         ref={vantaRef}
         className="fixed top-0 left-0 w-full h-full -z-10"
       />
-
-      {/* Contenido encima del fondo */}
       <div className="relative z-10 w-full">
         {children}
       </div>

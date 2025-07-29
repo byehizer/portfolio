@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import { motion } from "framer-motion";
 import { SiReact, SiNodedotjs, SiStripe, SiPrisma, SiMysql, SiSendgrid } from "react-icons/si";
 import { projects } from "@/constants/projects";
 import { useRouter } from "next/navigation";
@@ -23,16 +22,6 @@ export default function ProjectCarousel() {
     setCurrentIndex((prevIndex) =>
       prevIndex === projects.length - 1 ? 0 : prevIndex + 1
     );
-  };
-
-   const handleClickProject = (slug: string) => {
-      window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-      setTimeout(() => {
-    router.push(`/projects/${slug}`);
-  }, 100);
   };
 
   return (

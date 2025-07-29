@@ -2,7 +2,6 @@
 
 import { useModal } from "@/context/ModalContext";
 import { useProjectContext } from "@/context/ProjectContext";
-import { img } from "framer-motion/client";
 import Image from "next/image";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
