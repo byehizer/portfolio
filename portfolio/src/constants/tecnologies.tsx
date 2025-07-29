@@ -38,7 +38,7 @@ export const technologies=[
     category: "Backend",
     items: [
       { name: "Node.js", icon: <FaNodeJs className="text-green-600 text-5xl" /> },
-      { name: "Express.js", icon: <SiExpress className="text-gray-800 dark:text-white text-5xl" /> },
+      { name: "Express.js", icon: <SiExpress className="text-white dark:text-white text-5xl" /> },
       { name: "Java", icon: <FaJava className="text-red-600 text-5xl" /> },
 
     ],
