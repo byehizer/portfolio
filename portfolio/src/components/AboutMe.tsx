@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 export default function AboutMe() {
   const [copied, setCopied] = useState(false);
   const email = "Ehizerjesus08@gmail.com"; // Reemplaza con tu email real
-  const cvUrl = "https://tudominio.com/mi-cv.pdf"; // Reemplaza con tu URL real al PDF
+  const cvUrl = "https://portfolioehizer.vercel.app/ehizer.pdf"; // Reemplaza con tu URL real al PDF
 
   const handleCopy = () => {
     navigator.clipboard.writeText(email).then(() => {
