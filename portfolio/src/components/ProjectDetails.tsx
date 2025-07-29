@@ -23,7 +23,7 @@ export default function ProjectDetail({
 
   return (
     <div className="p-8">
-      <h1 className="text-6xl font-poppins text-center mb-5">{selectedProject.title}</h1>
+      <h1 className="text-6xl font-poppins text-center mb-5 text-white">{selectedProject.title}</h1>
 
       <Image
         src={selectedProject.image}
