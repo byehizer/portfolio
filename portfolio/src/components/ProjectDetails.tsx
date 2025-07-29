@@ -1,6 +1,8 @@
 "use client";
 
+import { useModal } from "@/context/ModalContext";
 import { useProjectContext } from "@/context/ProjectContext";
+import { img } from "framer-motion/client";
 import Image from "next/image";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
@@ -14,6 +16,7 @@ export default function ProjectDetail({
   
   const { selectedProject } = useProjectContext();
   console.log("Proyecto seleccionado:", selectedProject);
+  const { openModal }= useModal();
 
   if (!selectedProject) return null;
 
@@ -28,7 +31,10 @@ export default function ProjectDetail({
         alt={selectedProject.title}
         width={1200}
         height={700}
-        className="rounded-lg mb-4"
+        className="rounded-lg mb-4 cursor-pointer"
+        onClick={() => {
+          openModal(<img src={selectedProject.image} alt="Imagen grande" className="w-full h-[80vh] object-contain" />);
+        }}
       />
 
       {ContentComponent ? (

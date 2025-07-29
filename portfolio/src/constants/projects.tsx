@@ -6,7 +6,7 @@ export const projects = [
     slug: "coinbase",
     description:
       "Ecommerce completo con backend, frontend, pasarela de pago (Stripe), email (SendGrid) y base de datos.",
-    image: "/Interiro-cantina-Mos-Eisley-DOS.jpg",
+    image: "/coinbasescreens/Home.png",
     link: "#",
     techIcons: ["react", "nodedotjs", "stripe", "sendgrid", "mysql"],
     githubUrl: "https://github.com/byehizer/coinbase",

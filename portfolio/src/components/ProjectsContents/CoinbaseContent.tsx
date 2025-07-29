@@ -17,6 +17,7 @@ import {
 import { FiUpload } from "react-icons/fi";
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import MiniCarousel from "./MiniCarousel";
 
 const groupedSections = [
   {
@@ -24,28 +25,44 @@ const groupedSections = [
     title: "Pantalla principal y detalle de producto",
     description:
       "Catálogo de billetes antiguos y página de detalle con opción de agregar al carrito.",
-    images: ["/capturas/home.png", "/capturas/product-detail.png"],
+    images: [
+      "/coinbasescreens/Home.png",
+      "/coinbasescreens/ProjectDetail.png",
+      "/coinbasescreens/ProjectDetailMobile.png",
+    ],
   },
   {
     id: "cart-form",
     title: "Carrito y formulario de compra",
     description:
       "Vista del carrito con productos agregados, opciones para modificar cantidades, y formulario con validaciones.",
-    images: ["/capturas/cart.png", "/capturas/checkout-1.png"],
+    images: [
+      "/coinbasescreens/carritoenhome.png",
+      "/coinbasescreens/formulariodecompra.png",
+    ],
   },
   {
     id: "payment-confirm",
     title: "Pasarela de pagos y confirmación",
     description:
       "Pasarela Stripe (incluye Apple/Google Pay) y confirmación exitosa de pago.",
-    images: ["/capturas/stripe-payment.png", "/capturas/confirmation.png"],
+    images: [
+      "/coinbasescreens/sessionstripe.png",
+      "/coinbasescreens/sucesspayment.png",
+      "/coinbasescreens/cancelpayment.png",
+      "/coinbasescreens/dashboardstripe.png",
+    ],
   },
   {
     id: "proof-email",
     title: "Subida de comprobante y correo de confirmación",
     description:
       "Interfaz para subir comprobantes (Zelle/Venmo) y correo de confirmación enviado al cliente.",
-    images: ["/capturas/upload-proof.png", "/capturas/email-confirmation.png"],
+    images: [
+      "/coinbasescreens/subidadecomprobante.png",
+      "/coinbasescreens/subidadecomprobanteready.png",
+      "/coinbasescreens/mailsmandados.png",
+    ],
   },
   {
     id: "admin-panel",
@@ -53,9 +70,9 @@ const groupedSections = [
     description:
       "Login con JWT, listado de pedidos y detalle de pedido con gestión de estados y comprobantes.",
     images: [
-      "/capturas/admin-login.png",
-      "/capturas/admin-orders.png",
-      "/capturas/admin-order-detail.png",
+      "/coinbasescreens/Loginadmin.png",
+      "/coinbasescreens/paneladmin.png",
+      "/coinbasescreens/botonderefund.png",
     ],
   },
 ];
@@ -234,32 +251,28 @@ export default function CoinbaseContent() {
 
         <div className="space-y-4">
           {groupedSections.map(({ id, title, description, images }) => (
-            <div key={id} className="bg-white/10 rounded-md">
+            <div key={id} className="bg-slate-800 rounded-md ">
               <button
                 onClick={() => toggleSection(id)}
-                className="w-full flex justify-between items-center px-6 py-3 text-white font-poppins hover:bg-white/20 transition-colors"
+                className="cursor-pointer w-full flex justify-between items-center px-6 py-3 text-white font-poppins hover:bg-white/20 transition-colors"
               >
                 <span>{title}</span>
                 {openSection === id ? <FaChevronUp /> : <FaChevronDown />}
               </button>
 
-              {openSection === id && (
-                <div className="p-6 bg-white/20 rounded-b-md">
+              <div
+                className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                  openSection === id
+                    ? "max-h-[1000px] opacity-100"
+                    : "max-h-0 opacity-0"
+                } bg-black/40 rounded-b-md`}
+              >
+                <div className="p-6">
                   <p className="text-white font-inter mb-4">{description}</p>
 
-                  {/* Aquí puedes integrar tu carousel o mostrar imágenes */}
-                  <div className="flex space-x-4 overflow-x-auto">
-                    {images.map((img, i) => (
-                      <img
-                        key={i}
-                        src={img}
-                        alt={`${title} imagen ${i + 1}`}
-                        className="h-40 rounded-md shadow-md flex-shrink-0"
-                      />
-                    ))}
-                  </div>
+                  <MiniCarousel images={images} />
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>

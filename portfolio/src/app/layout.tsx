@@ -7,6 +7,7 @@ import { Inter, Poppins } from "next/font/google";
 import Sidebar from "@/components/Sidebar";
 import { ToastContainer } from "react-toastify";
 import { ProjectProvider } from "@/context/ProjectContext";
+import { ModalProvider } from "@/context/ModalContext";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} ${poppins.variable} antialiased`}>
         <ProjectProvider>
+        <ModalProvider>
         <VantaBackground>
           <div className="flex min-h-screen justify-center px-6 font-sans md:px-12">
             <div className="flex w-full max-w-screen-xl lg:gap-4 lg:flex-row flex-col">
@@ -54,6 +56,7 @@ export default function RootLayout({
             </div>
           </div>
         </VantaBackground>
+        </ModalProvider>
         </ProjectProvider>
       </body>
     </html>

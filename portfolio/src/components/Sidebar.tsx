@@ -1,8 +1,30 @@
+"use client"
 import { navLinks } from "@/constants/navlinks";
+import { useProjectContext } from "@/context/ProjectContext";
 import Image from "next/image";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Sidebar() {
+  const { selectedProject, setSelectedProject } = useProjectContext();
+
+  const handleNavClick = async (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault(); 
+
+
+    if (selectedProject) {
+      setSelectedProject(null);
+
+      await new Promise((res) => setTimeout(res, 800)); 
+    }
+
+    
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
   <aside className="lg:sticky lg:top-0 lg:max-h-screen 2xl:max-h-[90vh] lg:w-[48%] lg:flex lg:flex-col lg:py-10 text-white">
   {/* Parte superior fija: foto y nombre */}
@@ -37,6 +59,7 @@ export default function Sidebar() {
           <li key={link.href}>
             <a
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="ml-1 group flex items-center py-3 font-inter text-xs uppercase tracking-widest text-slate-300 hover:text-[#f59e0b] transition"
             >
               <span className="nav-indicator mr-4 h-px w-8 bg-slate-600 group-hover:w-16 group-hover:bg-[#f59e0b] transition-all"></span>
@@ -51,7 +74,7 @@ export default function Sidebar() {
   {/* Parte inferior fija: redes sociales */}
   <ul className="flex space-x-6 mt-8 ml-1 flex-shrink-0">
     <a
-      href="https://github.com/tuusuario"
+      href="https://github.com/byehizer"
       target="_blank"
       rel="noopener noreferrer"
       className="text-gray-400 hover:text-white transition"
@@ -59,7 +82,7 @@ export default function Sidebar() {
       <FaGithub size={24} />
     </a>
     <a
-      href="https://linkedin.com/in/tuusuario"
+      href="https://www.linkedin.com/in/ehizer-valero-80994526a/"
       target="_blank"
       rel="noopener noreferrer"
       className="text-gray-400 hover:text-white transition"
