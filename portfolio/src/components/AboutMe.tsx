@@ -50,14 +50,14 @@ export default function AboutMe() {
           <div className="flex gap-2">
             <button
               onClick={handleCopy}
-              className="px-3 py-2 text-sm bg-[#3B82F6] hover:bg-[#2563EB] rounded-lg transition flex items-center gap-1"
+              className="px-3 py-2 text-sm bg-[#3B82F6] hover:bg-[#2563EB] rounded-lg transition flex items-center gap-1 cursor-pointer"
             >
               <FaCopy /> {copied ? "Copiado!" : "Copiar"}
             </button>
 
             <button
               onClick={handleGmail}
-              className="px-3 py-2 text-sm bg-[#F59E0B] hover:bg-[#D97706] rounded-lg transition flex items-center gap-1"
+              className="px-3 py-2 text-sm bg-[#F59E0B] hover:bg-[#D97706] rounded-lg transition flex items-center gap-1 cursor-pointer"
             >
               <FaEnvelope /> Gmail
             </button>

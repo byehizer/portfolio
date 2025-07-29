@@ -93,13 +93,13 @@ export default function ProjectCarousel() {
     {/* Botones */}
     <button
       onClick={goToPrev}
-      className="z-30 p-3 bg-yellow-500 text-black rounded-full shadow hover:scale-105 transition absolute left-2 sm:left-4 bottom-2 sm:bottom-auto"
+      className={`z-30 p-3 bg-yellow-500 text-black rounded-full shadow hover:scale-105 ${projects.length <= 1 && "hidden" } transition absolute left-2 sm:left-4 bottom-2 sm:bottom-auto`}
     >
       <FaArrowLeft />
     </button>
     <button
       onClick={goToNext}
-      className="z-30 p-3 bg-yellow-500 text-black rounded-full shadow hover:scale-105 transition absolute right-2 sm:right-4 bottom-2 sm:bottom-auto"
+      className={`z-30 p-3 bg-yellow-500 text-black rounded-full shadow hover:scale-105 ${projects.length <= 1 && "hidden" } transition absolute right-2 sm:right-4 bottom-2 sm:bottom-auto`}
     >
       <FaArrowRight />
     </button>
