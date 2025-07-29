@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import VantaBackground from "@/components/Vantabackground";
-import Header from "@/components/Header";
 import { Inter, Poppins } from "next/font/google";
 import Sidebar from "@/components/Sidebar";
 import { ToastContainer } from "react-toastify";
@@ -43,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body className={`${inter.variable} ${poppins.variable} antialiased`}>
         <ProjectProvider>
         <ModalProvider>
