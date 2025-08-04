@@ -20,7 +20,7 @@ export default function ProjectDetail({
   useEffect(() => {
     async function scrollToTopWithDelay() {
       if (selectedProject) {
-        await new Promise((resolve) => setTimeout(resolve, 800));
+        await new Promise((resolve) => setTimeout(resolve, 600));
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
