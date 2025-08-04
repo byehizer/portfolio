@@ -28,7 +28,9 @@ export default function MainContent() {
 
   // Sincronizar con el contexto al iniciar o cambiar selectedProject
   useEffect(() => {
-    if (selectedProject) setShowDetail(true);
+    if (selectedProject){ 
+      setShowDetail(true);
+    }
     else setShowDetail(false);
   }, [selectedProject]);
 

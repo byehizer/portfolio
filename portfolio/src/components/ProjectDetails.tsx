@@ -3,6 +3,7 @@
 import { useModal } from "@/context/ModalContext";
 import { useProjectContext } from "@/context/ProjectContext";
 import Image from "next/image";
+import { useEffect } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { SiTrello } from "react-icons/si";
@@ -14,8 +15,17 @@ export default function ProjectDetail({
 }) {
   
   const { selectedProject } = useProjectContext();
-  console.log("Proyecto seleccionado:", selectedProject);
   const { openModal }= useModal();
+
+  useEffect(() => {
+    async function scrollToTopWithDelay() {
+      if (selectedProject) {
+        await new Promise((resolve) => setTimeout(resolve, 800));
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+    scrollToTopWithDelay();
+  }, [selectedProject]);
 
   if (!selectedProject) return null;
 
