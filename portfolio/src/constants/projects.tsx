@@ -11,6 +11,7 @@ export const projects = [
     techIcons: ["react", "nodedotjs", "stripe", "sendgrid", "mysql"],
     githubUrl: "https://github.com/byehizer/coinbase",
     trelloUrl: "https://trello.com/b/UYM1Zta8/coinbase",
+    deployUrl: "https://coinbase-sandy-xi.vercel.app/",
     ContentComponent: CoinbaseContent,
   },
 ];

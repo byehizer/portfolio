@@ -10,6 +10,7 @@ interface Project {
   githubUrl?: string;
   trelloUrl?: string;
   ContentComponent?: FC;
+  deployUrl?: string;
 }
 
 interface ProjectContextType {

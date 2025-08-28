@@ -6,16 +6,15 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import { SiTrello } from "react-icons/si";
+import { SiTrello, SiVercel } from "react-icons/si";
 
 export default function ProjectDetail({
   onRequestClose,
 }: {
   onRequestClose: () => void;
 }) {
-  
   const { selectedProject } = useProjectContext();
-  const { openModal }= useModal();
+  const { openModal } = useModal();
 
   useEffect(() => {
     async function scrollToTopWithDelay() {
@@ -33,7 +32,9 @@ export default function ProjectDetail({
 
   return (
     <div className="p-8">
-      <h1 className="text-6xl font-poppins text-center mb-5 text-white">{selectedProject.title}</h1>
+      <h1 className="text-6xl font-poppins text-center mb-5 text-white">
+        {selectedProject.title}
+      </h1>
 
       <Image
         src={selectedProject.image}
@@ -42,7 +43,13 @@ export default function ProjectDetail({
         height={700}
         className="rounded-lg mb-4 cursor-pointer"
         onClick={() => {
-          openModal(<img src={selectedProject.image} alt="Imagen grande" className="w-full h-[80vh] object-contain" />);
+          openModal(
+            <img
+              src={selectedProject.image}
+              alt="Imagen grande"
+              className="w-full h-[80vh] object-contain"
+            />
+          );
         }}
       />
 
@@ -71,6 +78,16 @@ export default function ProjectDetail({
             className="inline-flex items-center gap-2  font-poppins text-white font-semibold px-4 py-2 rounded-2xl bg-[#F59E0B]  hover:bg-[#d97706] transition-colors duration-300"
           >
             <SiTrello /> Trello
+          </a>
+        )}
+        {selectedProject.deployUrl && (
+          <a
+            href={selectedProject.deployUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 font-poppins text-white font-semibold px-4 py-2 rounded-2xl bg-black hover:bg-gray-800 transition-colors duration-300"
+          >
+            <SiVercel /> Deploy
           </a>
         )}
       </div>
