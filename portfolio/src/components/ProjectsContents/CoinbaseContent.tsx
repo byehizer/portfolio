@@ -11,6 +11,11 @@ import {
   SiStripe,
   SiSendgrid,
   SiDocker,
+  SiGooglecloud,
+  SiVercel,
+  SiRailway,
+  SiSwagger,
+  SiVitest,
 } from "react-icons/si";
 import { FiUpload } from "react-icons/fi";
 import { useState } from "react";
@@ -85,18 +90,26 @@ export default function CoinbaseContent() {
   return (
     <>
       <div className="space-y-6">
-        <h2 className="text-4xl font-poppins text-[#ffffff] mt-10">
+          <h2 className="text-4xl font-poppins text-[#ffffff] mt-10">
           Descripción general
         </h2>
         <p className="text-white font-inter">
           <strong>Coinbase</strong> es una plataforma de e-commerce enfocada en
           la venta de billetes antiguos. Fue desarrollada completamente desde
           cero, cubriendo tanto el frontend como el backend, con énfasis en una
-          arquitectura limpia, modular y escalable. El sistema permite agregar
-          productos al carrito, seleccionar métodos de pago (Stripe, Zelle o
-          Venmo), subir comprobantes, y recibir confirmaciones vía correo
-          electrónico con SendGrid. También cuenta con un panel administrativo
-          protegido mediante autenticación JWT.
+          arquitectura limpia, modular y escalable.
+        </p>
+        <p className="text-white font-inter">
+          El sistema permite: agregar productos al carrito, seleccionar métodos
+          de pago (Stripe, Zelle o Venmo), subir comprobantes de pago a la nube
+          mediante <strong>Google Cloud Storage</strong>, recibir confirmaciones
+          vía correo electrónico con <strong>SendGrid</strong> y gestionar
+          pedidos desde un panel administrativo protegido con autenticación{" "}
+          <strong>JWT</strong>. Actualmente está desplegada en{" "}
+          <strong>Railway (backend)</strong> y <strong>Vercel (frontend)</strong>{" "}
+          con un pipeline de CI/CD en <strong>GitHub Actions</strong>, seguridad
+          mejorada con <strong>Helmet</strong> y <strong>Rate limiting</strong>,
+          y cuenta con <strong>tests unitarios e integración usando Vitest</strong>.
         </p>
 
         <h2 className="text-4xl font-poppins text-[#ffffff]">
@@ -104,40 +117,38 @@ export default function CoinbaseContent() {
         </h2>
         <p className="text-white font-inter">
           Este proyecto fue mi principal enfoque durante varios meses. Me
-          encargué de todo el ciclo de desarrollo: diseño de base de datos,
-          definición de rutas y controladores, desarrollo del frontend con React
-          y Tailwind, integración de Stripe, Multer, y SendGrid, además del
-          despliegue local con Docker. También documenté las funcionalidades en
-          un tablero de Trello y dejé planificadas las mejoras futuras.
+          encargué de <strong>todo el ciclo de desarrollo</strong>, incluyendo:
         </p>
-
-        <h2 className="text-4xl font-poppins text-[#ffffff]">
-          Arquitectura y diseño
-        </h2>
         <ul className="list-disc list-inside text-white space-y-2 font-inter">
           <li>
-            <strong>Clean Architecture:</strong> separación en capas:
-            controller, service y repository para facilitar pruebas,
-            mantenibilidad y escalabilidad.
+            Diseño de la base de datos y modelo con PostgreSQL + Prisma ORM.
           </li>
           <li>
-            <strong>Patrón MVC:</strong> el backend sigue el modelo
-            Vista-Controlador para separar responsabilidades.
+            Definición de rutas, controladores y servicios siguiendo Clean
+            Architecture.
+          </li>
+          <li>Desarrollo del frontend con React y TailwindCSS.</li>
+          <li>Integración de Stripe como pasarela de pagos.</li>
+          <li>
+            Manejo de comprobantes de pago con Google Cloud Storage (antes
+            Multer local).
           </li>
           <li>
-            <strong>Middlewares personalizados:</strong> manejo centralizado de
-            errores, validación de tokens y autenticación de administrador.
+            Notificaciones automáticas por correo con SendGrid.
           </li>
           <li>
-            <strong>Context API:</strong> utilizado en el frontend para manejar
-            el estado global (como el proyecto seleccionado).
+            Implementación de Swagger/OpenAPI para documentar la API.
+          </li>
+          <li>Configuración de tests unitarios e integración con Vitest.</li>
+          <li>Seguridad mejorada con Helmet + Rate limiting.</li>
+          <li>
+            Despliegue local con Docker y en la nube con Railway + Vercel,
+            gestionado mediante CI/CD en GitHub Actions.
           </li>
           <li>
-            <strong>Validaciones y seguridad:</strong> control sobre subida de
-            comprobantes y uso de JWT.
+            Documentación del flujo de trabajo y roadmap en un tablero Trello.
           </li>
         </ul>
-
         <h2 className="text-4xl font-poppins text-[#ffffff]">
           Tecnologías utilizadas
         </h2>
@@ -162,8 +173,22 @@ export default function CoinbaseContent() {
             <strong>Correo:</strong> SendGrid para confirmación de pedidos.
           </li>
           <li>
-            <strong>Subida de archivos:</strong> Multer (pensado para migrar a
-            Google Cloud Storage).
+            <strong>Subida de archivos:</strong> Google Cloud Storage.
+          </li>
+          <li>
+            <strong>Documentación:</strong> Swagger/OpenAPI.
+          </li>
+          <li>
+            <strong>Pruebas:</strong> Unitarias e integración con Vitest.
+          </li>
+          <li>
+            <strong>Seguridad:</strong> Helmet y Rate limiting.
+          </li>
+          <li>
+            <strong>CI/CD:</strong> GitHub Actions.
+          </li>
+          <li>
+            <strong>Deploy:</strong> Railway (backend) y Vercel (frontend).
           </li>
           <li>
             <strong>Desarrollo local:</strong> Docker para entornos aislados.
@@ -219,6 +244,25 @@ export default function CoinbaseContent() {
               title="Docker"
               className="hover:text-[#0db7ed] transition-colors"
             />
+            <SiGooglecloud
+              title="Google Cloud"
+              className="hover:text-[#4285F4] transition-colors" />
+            <SiVercel
+              title="Vercel"
+              className="hover:text-[#000000] transition-colors" 
+            />
+            <SiRailway
+              title="Railway"
+              className="hover:text-[#0B0D0E] transition-colors" 
+            />
+            <SiSwagger
+              title="Swagger"
+              className="hover:text-[#85EA2D] transition-colors" 
+            />
+            <SiVitest
+              title="Vitest"
+              className="hover:text-[#729B1B] transition-colors" 
+            />
           </div>
         </section>
 
@@ -227,21 +271,20 @@ export default function CoinbaseContent() {
         </h2>
         <ul className="list-disc list-inside text-white space-y-2 font-inter">
           <li>
-            Proyecto funcional y robusto, listo para producción a pequeña
-            escala.
+            Proyecto funcional y robusto, desplegado en producción (Railway +
+            Vercel).
           </li>
           <li>
-            Falta implementar búsqueda indexada desde backend (actualmente en
-            frontend).
-          </li>
-          <li>Agregar documentación Swagger/OpenAPI.</li>
-          <li>
-            Incluir pruebas automatizadas para endpoints y procesos críticos.
+            Base de datos congelada (“freezeada”) para mantener consistencia.
           </li>
           <li>
-            Subida de imágenes a la nube (pendiente migración desde
-            almacenamiento local).
+            Observabilidad pendiente: logs estructurados (Winston/Pino) e
+            integración con Sentry para monitoreo de errores.
           </li>
+          <li>
+            Posible automatización de seeds/migrations para entornos nuevos.
+          </li>
+          <li>Optimización de búsqueda indexada desde backend.</li>
         </ul>
         <h2 className="text-4xl font-poppins text-[#ffffff] mb-6">
           Flujo completo de usuario y panel administrativo

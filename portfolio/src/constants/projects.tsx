@@ -8,7 +8,7 @@ export const projects = [
       "Ecommerce completo con backend, frontend, pasarela de pago (Stripe), email (SendGrid) y base de datos.",
     image: "/coinbasescreens/Home.png",
     link: "#",
-    techIcons: ["react", "nodedotjs", "stripe", "sendgrid", "mysql"],
+    techIcons: ["react", "nodedotjs", "stripe", "sendgrid", "postgresql","vitest","googlecloud"],
     githubUrl: "https://github.com/byehizer/coinbase",
     trelloUrl: "https://trello.com/b/UYM1Zta8/coinbase",
     deployUrl: "https://coinbase-sandy-xi.vercel.app/",
